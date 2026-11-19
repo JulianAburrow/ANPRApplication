@@ -1,0 +1,9 @@
+﻿@page "/"
+@page "/registervehicle"
+
+<PageTitle>Home / Register Vehicle</PageTitle>
+
+<EditForm Model="@ParkingRegsitrationDisplayModel" OnValidSubmit="RegisterVehicle">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+</EditForm>

@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/Database/">
+    <Project Path="ANPRDatabase/ANPRDatabase.sqlproj">
+      <Build />
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="ANPRDataAccess/ANPRDataAccess.csproj" />
+    <Project Path="ANPRUI/ANPRUserInterface.csproj" />
+  </Folder>
+</Solution>
