@@ -10,7 +10,7 @@ public class ParkingRegistrationDisplayModel
 
     public DateTime DateParked { get; set; }
 
-    public DateTime DateDeparted { get; set; }
+    public DateTime? DateDeparted { get; set; }
 
     public decimal? ParkingCharge { get; set; }
 }

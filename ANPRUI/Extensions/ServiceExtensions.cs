@@ -16,5 +16,8 @@ public static class ServiceExtensions
 
     public static void AddDependencies(this IServiceCollection services, IConfiguration config)
     {
+        services.AddTransient<IParkingChargeHandler, ParkingChargeHandler>();
+        services.AddTransient<IParkingRegistrationHandler, ParkingRegistrationHandler>();
+        services.AddHttpClient<IRegistrationReader, QwenRegistrationReader>();
     }
 }

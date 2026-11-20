@@ -1,6 +1,13 @@
 ﻿global using ANPRDataAccess.Data;
+global using ANPRDataAccess.Handlers;
+global using ANPRDataAccess.Interfaces;
+global using ANPRDataAccess.Models;
+global using ANPRServices.Handlers;
+global using ANPRServices.Interfaces;
 global using ANPRUserInterface.Components;
 global using ANPRUserInterface.Extensions;
 global using ANPRUserInterface.Models;
+global using Microsoft.AspNetCore.Components;
+global using Microsoft.AspNetCore.Components.Forms;
 global using Microsoft.EntityFrameworkCore;
 global using MudBlazor.Services;

@@ -1,0 +1,37 @@
+﻿@page "/currentregistrations"
+
+<PageTitle>Current Registrations</PageTitle>
+
+@if (CurrentRegistrationsList is null)
+{
+    <MudText>Loading...</MudText>
+    return;
+}
+
+<MudTable Items="CurrentRegistrationsList"
+    SortLabel="SortBy"
+    Hover
+    RowsPerPage="10"
+    FixedHeader
+    Height="500px">
+    <HeaderContent>
+        <MudTh title="Sort by Vehicle Registration Number">
+            <MudTableSortLabel SortBy="new Func<CurrentParkingRegistrationModel, object>(x => x.RegistrationNumber)">
+                Registration Number
+            </MudTableSortLabel>
+        </MudTh>
+        <MudTh title="Sort by Entry Time">            
+            <MudTableSortLabel SortBy="new Func<CurrentParkingRegistrationModel, object>(x => x.DateParked)">
+                Entry Time
+            </MudTableSortLabel>
+        </MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>@context.RegistrationNumber</MudTd>
+        <MudTd>@context.DateParked.ToString("dd/MM/yyyy HH:mm:ss")</MudTd>
+    </RowTemplate>    
+    <PagerContent>
+        <MudTablePager PageSizeOptions="new int[] { 5, 10, 25, 50, 100, int.MaxValue }" />
+    </PagerContent>
+</MudTable>
+    

@@ -1,0 +1,5 @@
+﻿=== INSTRUCTIONS ===
+You are reading this image strictly for a vehicle registration number.
+Do not attempt to read any other text or information from the image.
+Only provide the registration number in your response.
+If you cannot read a registration number from the image, respond with "Unsuccessful"

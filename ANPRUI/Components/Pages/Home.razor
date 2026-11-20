@@ -3,7 +3,52 @@
 
 <PageTitle>Home / Register Vehicle</PageTitle>
 
-<EditForm Model="@ParkingRegsitrationDisplayModel" OnValidSubmit="RegisterVehicle">
+<EditForm Model="@ParkingRegsitrationDisplayModel">
     <DataAnnotationsValidator />
     <ValidationSummary />
+
+    <MudPaper Class="d-inline-block">
+    
+        <MudFileUpload T="IBrowserFile"
+                       FilesChanged="UploadImage"
+                       Accept="image/*"
+                       Class="file-upload-button">
+        
+                <MudButton HtmlTag="label"
+                           Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           StartIcon="@Icons.Material.Filled.FileUpload">
+                    Upload File
+                </MudButton>
+        
+        </MudFileUpload>
+
+    </MudPaper>
 </EditForm>
+
+@if (IsThinking)
+{
+    <ReadingRegistrationComponent />
+}
+
+@if (string.IsNullOrEmpty(RegistrationNumberOrError))
+{
+    return;
+}
+
+<MudPaper Class="d-inline-block">
+
+    @if (RegistrationNumberOrError == "Unsuccessful")
+    {
+        <MudAlert Severity="Severity.Error" Variant="Variant.Filled">
+            Unable to read registration number from image. Please try again.
+        </MudAlert>
+    }
+    else
+    {
+        <MudAlert Severity="Severity.Success" Variant="Variant.Filled">
+            Registration Number @RegistrationNumberOrError successfully registered.
+        </MudAlert>
+    }
+
+</MudPaper>

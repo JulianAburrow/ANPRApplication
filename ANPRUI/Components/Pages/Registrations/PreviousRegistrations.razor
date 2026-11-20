@@ -1,0 +1,49 @@
+﻿@page "/previousregistrations"
+
+<PageTitle>Previous Registrations</PageTitle>
+
+@if (PreviousRegistrationsList is null)
+{
+    <MudText>Loading...</MudText>
+    return;
+}
+
+<MudTable Items="PreviousRegistrationsList"
+          SortLabel="SortBy"
+          Hover
+          RowsPerPage="10"
+          FixedHeader
+          Height="500px">
+    <HeaderContent>
+        <MudTh title="Sort by Entry Time">            
+            <MudTableSortLabel SortBy="new Func<PreviousParkingRegistrationModel, object>(x => x.DateParked)">
+                Entry Time
+            </MudTableSortLabel>
+        </MudTh>
+        <MudTh title="Sort by Exit Time">            
+            <MudTableSortLabel SortBy="new Func<PreviousParkingRegistrationModel, object>(x => x.DateDeparted)">
+                Exit Time
+            </MudTableSortLabel>
+        </MudTh>
+        <MudTh title="Sort by Length of Stay">
+            <MudTableSortLabel SortBy="new Func<PreviousParkingRegistrationModel, object>(x => x.LengthOfStayMinutes)">
+                Length of Stay
+            </MudTableSortLabel>
+        </MudTh>
+        <MudTh title="Sort by Parking Charge">            
+            <MudTableSortLabel SortBy="new Func<PreviousParkingRegistrationModel, object>(x => x.ParkingCharge)">
+                Parking Charge
+            </MudTableSortLabel>
+        </MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>@context.DateParked.ToString("dd/MM/yyyy HH:mm:ss")</MudTd>
+        <MudTd>@context.DateDeparted.ToString("dd/MM/yyyy HH:mm:ss")</MudTd>
+        <MudTd>@context.LengthOfStay</MudTd>
+        <MudTd>@context.ParkingCharge.ToString("C")</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager PageSizeOptions="new int[] { 5, 10, 25, 50, 100, int.MaxValue }" />
+    </PagerContent>
+</MudTable>
+    
