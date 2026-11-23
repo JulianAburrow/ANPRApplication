@@ -14,7 +14,7 @@ public class PreviousParkingRegistrationModel
         {
             TimeSpan duration = DateDeparted - DateParked;
 
-            return $"{duration.Hours} hrs {duration.Minutes} mins";
+            return $"{(int)duration.TotalHours} hrs {duration.Minutes} mins";
         }
     }
 
